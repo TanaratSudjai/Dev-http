@@ -22,7 +22,7 @@ if ($count->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DASHBORAD</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -32,10 +32,6 @@ if ($count->num_rows > 0) {
         <div style="width: 90%;height:100px; display:flex; align-items:center; justify-content:space-between;">
             <div class="logo">
                 <img style="width: 150px; height:150px" src="books-removebg-preview.png" alt="">
-            </div>
-            <div style="display:flex; justify-content:space-between; align-items: center; height:20px; width:200px ;border-radius: 5px; padding:15px; background-color: #fff;box-shadow:#d6d6d6 1px 1px 1px 1px ; ">
-                <p>Books Quantity</p>
-                <h4><?php echo $total_books; ?></h4>
             </div>
             <ul style="list-style: none; display:flex;   align-items:center; gap:20px;">
                 <li><a style="color:#0e032e; text-decoration:none; font-weight:bold; ">EXIT</a></li>
@@ -48,10 +44,13 @@ if ($count->num_rows > 0) {
         <div style="margin:25px; width:100%; margin-top:25px">
             <div class="" style="width:900px;">
                 <form style="display:flex;" method="post" action="" enctype="multipart/form-data" class="mb-4 mt-3">
-                    <input style="padding: 10px; margin:5px; width:100%; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none ;" type="text" name="title" class="form-control" placeholder="booksname" required><br>
-                    <input style="padding: 10px; margin:5px; width:100%; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none ;" type="text" name="author" class="form-control" placeholder="autorname" required><br>
+                    <input style="padding: 10px; margin:5px; width:100%; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none ;" type="text" name="title" class="form-control" placeholder="BOOKNAME" required><br>
+                    <input style="padding: 10px; margin:5px; width:100%; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none ;" type="text" name="author" class="form-control" placeholder="DATE ADD" required><br>
                     <input style="padding: 10px; margin:5px; width:150%; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none ;" name="image" class="form-control" type="file" id="formFile"><br>
                     <button style="padding: 10px; margin:5px; width:100%; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none; background-color:#0e032e; color:#fff;" type="submit" name="add_book" class="btn ">BOOKSADD</button>
+                    <div  style="padding: 10px; margin:5px; box-shadow:#d6d6d6 1px 1px 1px 1px ; border:none ; border-radius:5px">
+                        <h4><?php echo $total_books; ?></h4>
+                    </div>
                 </form>
             </div>
         </div>
@@ -63,7 +62,6 @@ if ($count->num_rows > 0) {
         <div class="dis">
 
             <div>
-
                 <div class="row" style="margin:150px; margin-top:25px; display:flex; justify-content: center;">
                     <?php foreach ($books as $book) : ?>
                         <div class="col-md-4 mb-5" style="width:280px">
@@ -73,14 +71,14 @@ if ($count->num_rows > 0) {
                                     <h5 class="card-title">
                                         <?php echo $book['title']; ?>
                                     </h5>
-                                    <p class="card-text">วันที่เบันทึก:
+                                    <p class="card-text">DATE
                                         <?php echo $book['author']; ?>
                                     </p>
                                 </div>
                                 <div class="card-footer" style="display:flex; justify-content:space-around;">
                                     <!-- Inside the existing loop -->
                                     <button type="button" class="btnedit" style="background-color: #0e032e; width:140px; padding:5px; color:#fff; border-radius: 5px; " data-bs-toggle="modal" data-bs-target="#edit<?php echo $book['id']; ?>" data-bookid="<?php echo $book['id']; ?>">
-                                        แก้ไข
+                                        EDIT
                                     </button>
                                     <!-- โมเดล การเข้าอัพเดต -->
                                     <center>
